@@ -55,10 +55,10 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center">
-      <h1 className="text-6xl items-center font-sans text-tertiary pb-4 mb-6 text-center tracking-wider bg-background/50 w-full">Poetry.AI</h1>
+    <main className="flex min-h-screen flex-col items-center overflow-hidden">
+      <h1 className="text-6xl items-center font-mono text-tertiary pb-2 mb-6 text-center tracking-wider bg-background/50 w-full">Poetry.AI</h1>
 
-      <div className="flex py-2  h-[35rem] w-min[fit-content] w-max[1500px] flex-col items-center bg-tertiary/25 rounded-xl drop-shadow-xl">
+      <div className="flex py-2  h-[35rem] w-min[min-content] w-max[1500px] flex-col font-sans items-center bg-tertiary/25 rounded-xl drop-shadow-xl">
         <div className=" h-full flex flex-col gap-2 overflow-y-auto py-8 px-3 w-full">
           {messages.map((e) => {
             return (
@@ -89,14 +89,14 @@ export default function Home() {
 
 
           {isLoading ? (
-            <div className="self-center  bg-gray-200 text-gray-800 w-max max-w-[18rem] rounded-md px-4 py-3 h-min">
+            <div className="self-center  bg-background text-gray-800 w-max max-w-[18rem] rounded-md px-4 py-3 h-min">
               *thinking*
             </div>
           ) : (
             ""
           )}
         </div>
-        <div className="relative  w-[80%] bottom-4 flex justify-evenly sm:gap-1">
+        <div className="relative  w-[fit-content] bottom-4 flex justify-evenly sm:gap-1">
           <textarea
             value={typeOfPoem}
             onChange={(event) => setTypeOfPoem(event.target.value)}
