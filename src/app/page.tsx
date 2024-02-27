@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import parse from 'html-react-parser';
 
 export default function Home() {
   const [theInput, setTheInput] = useState("");
@@ -10,7 +11,7 @@ export default function Home() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "What kind of poem would you like me to write?",
+      content: "Tell me the type of poem you would like me to write, how you would like it to make you feel, and what it should be about.",
     },
   ]);
   const [output, setOutput] = useState("")
@@ -20,7 +21,8 @@ export default function Home() {
   const callGetResponse = async () => {
     setIsLoading(true);
     let temp = messages;
-    temp.push({ role: "user", content: `Write me a poem with a title with these guidelines. Do not format the title. Type: ${typeOfPoem} Subject: ${topicOfPoem}  Mood: ${moodOfPoem}` });
+    temp.push({ role: "user", content: `Write me a poem with a title with these guidelines. Output title as html h1 tag and lines as p tags. 
+    Type: ${typeOfPoem} Subject: ${topicOfPoem}  Mood: ${moodOfPoem}` });
     setMessages(temp);
     setTypeOfPoem("");
     setMoodOfPoem("");
@@ -53,10 +55,10 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-24 py-5">
-      <h1 className="text-5xl font-sans">Poetry.AI</h1>
+    <main className="flex min-h-screen flex-col items-center">
+      <h1 className="text-6xl items-center font-sans text-tertiary pb-4 mb-6 text-center tracking-wider bg-background/50 w-full">Poetry.AI</h1>
 
-      <div className="flex  h-[35rem] w-min[fit-content] w-max[1500px] flex-col items-center bg-gray-600 rounded-xl">
+      <div className="flex py-2  h-[35rem] w-min[fit-content] w-max[1500px] flex-col items-center bg-tertiary/25 rounded-xl drop-shadow-xl">
         <div className=" h-full flex flex-col gap-2 overflow-y-auto py-8 px-3 w-full">
           {messages.map((e) => {
             return (
@@ -64,7 +66,7 @@ export default function Home() {
                 key={e.content}
                 className={`w-[80%] rounded-md px-4 py-3 h-min ${
                   e.role === "assistant"
-                    ? "self-center  bg-gray-200 text-gray-800"
+                    ? "self-center  bg-primary/75 text-gray-800"
                     : "hidden"
                 } `}
               >
@@ -75,11 +77,11 @@ export default function Home() {
               <div
                 className={`w-[80%] rounded-md px-4 py-3 h-min ${
                   output != ""
-                  ? "self-center bg-gray-200 text-gray-800 text-center"
+                  ? "self-center bg-secondary/25 text-black text-center"
                   : "hidden"
                 } `}
               >
-                {output}
+                {parse(output)}
                 
               </div>
             
@@ -122,9 +124,9 @@ export default function Home() {
         </div>
           <button
             onClick={callGetResponse}
-            className="w-[fit-content] bg-blue-500 px-4 py-2 rounded mb-2"
+            className="w-[fit-content] bg-background text-text px-4 py-2 rounded mb-2 hover:bg-tertiary hover:text-background"
           >
-            Send
+            Generate
           </button>
       </div>
 
