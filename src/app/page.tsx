@@ -126,7 +126,7 @@ export default function Home() {
         </div>
           <button
             onClick={callGetResponse}
-            className="w-[fit-content] bg-background text-text px-4 py-2 rounded mb-2 hover:bg-tertiary hover:text-background"
+            className="w-[fit-content] bg-background text-text px-4 py-2 rounded mb-2 hover:bg-tertiary hover:text-background hover:px-6"
           >
             Generate
           </button>
