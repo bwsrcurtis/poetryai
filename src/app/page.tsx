@@ -91,7 +91,7 @@ export default function Home() {
 
 
           {isLoading ? (
-            <div className="self-center  bg-background text-gray-800 w-max max-w-[18rem] rounded-md px-4 py-3 h-min">
+            <div className="self-center  bg-background text-black w-max max-w-[18rem] rounded-md px-4 py-3 h-min">
               *thinking*
             </div>
           ) : (
