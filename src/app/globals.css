@@ -3,12 +3,17 @@
 @tailwind utilities;
 
 :root {
-	--foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 0, 0, 0;
 }
 
 body {
-	background: rgb(85,123,131);
-  background: radial-gradient(circle, rgba(229,239,193,1) 0%, rgba(162,213,171,1) 15%, rgba(85,123,131,1) 100%);
+  background: rgb(85, 123, 131);
+  background: radial-gradient(
+    circle,
+    rgba(229, 239, 193, 1) 0%,
+    rgba(162, 213, 171, 1) 15%,
+    rgba(85, 123, 131, 1) 60%
+  );
   white-space: pre-line;
 }
 
