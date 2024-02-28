@@ -58,15 +58,15 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center overflow-hidden">
       <Image src='/poetryAILogo.svg' width={150} height={150} alt="Logo" className='absolute top-0 -z-10'/>
-      <h1 className="text-6xl items-center justify-center font-mono text-tertiary text-center tracking-wider pt-9 h-36 bg-background/15 w-full">Poetry.AI</h1>
+      <h1 className="text-4xl sm:text-6xl items-center justify-center font-mono text-tertiary text-center tracking-wider pt-9 h-36 bg-background/15 w-full">Poetry.AI</h1>
 
-      <div className="flex py-2  h-[35rem] w-min[min-content] w-max[1500px] flex-col font-sans items-center bg-tertiary/25 rounded-xl drop-shadow-xl">
+      <div className="flex py-2  h-[35rem] min-w-[350px] w-[80%] max-w-[1500px] flex-col font-sans items-center bg-tertiary/25 rounded-xl drop-shadow-xl">
         <div className=" h-full flex flex-col gap-2 overflow-y-auto py-8 px-3 w-full">
           {messages.map((e) => {
             return (
               <div
                 key={e.content}
-                className={`w-[80%] rounded-md px-4 py-3 h-min ${
+                className={`w-[80%] rounded-md px-4 py-3 h-fit ${
                   e.role === "assistant"
                     ? "self-center  bg-primary/75 text-gray-800"
                     : "hidden"
@@ -98,7 +98,7 @@ export default function Home() {
             ""
           )}
         </div>
-        <div className="relative  w-[fit-content] bottom-4 flex justify-evenly sm:gap-1">
+        <div className="relative bottom-4 flex items-end justify-center sm:gap-1 h-[35rem] min-w-[350px] w-[80%]">
           <textarea
             value={typeOfPoem}
             onChange={(event) => setTypeOfPoem(event.target.value)}
