@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import parse from 'html-react-parser';
+import Image from "next/image";
 
 export default function Home() {
   const [theInput, setTheInput] = useState("");
@@ -56,7 +57,8 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center overflow-hidden">
-      <h1 className="text-6xl items-center font-mono text-tertiary pb-2 mb-6 text-center tracking-wider bg-background/50 w-full">Poetry.AI</h1>
+      <Image src='/poetryAILogo.svg' width={150} height={150} alt="Logo" className='absolute top-0 -z-10'/>
+      <h1 className="text-6xl items-center justify-center font-mono text-tertiary text-center tracking-wider pt-9 h-36 bg-background/15 w-full">Poetry.AI</h1>
 
       <div className="flex py-2  h-[35rem] w-min[min-content] w-max[1500px] flex-col font-sans items-center bg-tertiary/25 rounded-xl drop-shadow-xl">
         <div className=" h-full flex flex-col gap-2 overflow-y-auto py-8 px-3 w-full">
